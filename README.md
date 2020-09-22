@@ -21,7 +21,7 @@ On systems without access to the Internet, one can [download](https://github.com
 
 ## Related Projects
 
-* Spack Package Manager: [http://computation.llnl.gov/projects/spack-hpc-package-manager](http://computation.llnl.gov/projects/spack-hpc-package-manager)
+* Spack Package Manager: [https://computing.llnl.gov/projects/spack-hpc-package-manager](https://computation.llnl.gov/projects/spack-hpc-package-manager)
 * EasyBuild / EasyConfig (University of Gent): [https://github.com/easybuilders](https://github.com/easybuilders)
 
 Please note that XCONFIGURE has a narrower scope when compared to the above package managers.
