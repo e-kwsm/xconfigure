@@ -42,7 +42,7 @@ if [ "" = "${MKLROOT}" ]; then
   fi
 fi
 
-CONFOPTS="--disable-avx512 --enable-openmp"
+CONFOPTS="--disable-avx512 --enable-openmp --without-threading-support-check-during-build"
 MKL_OMPRTL="gnu_thread"
 MKL_FCRTL="gf"
 TARGET="-march=core-avx2"
@@ -98,7 +98,7 @@ sed -i \
 if [ -e ${HERE}/config.h ]; then
   VERSION=$(grep ' VERSION ' config.h | cut -s -d' ' -f3 | sed -e 's/^\"//' -e 's/\"$//')
   if [ "" != "${VERSION}" ]; then
-    if [ "1" = "$(grep ' WITH_OPENMP ' config.h | cut -s -d' ' -f3 | sed -e 's/^\"//' -e 's/\"$//')" ]; then
+    if [ "0" != "$(grep ' WITH_OPENMP' config.h | cut -s -d' ' -f3 | sed -e 's/^\"//' -e 's/\"$//')" ]; then
       ELPA=elpa_openmp
     else
       ELPA=elpa

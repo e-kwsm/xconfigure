@@ -50,7 +50,7 @@ then
   CONFOPTS="--disable-avx512"
 fi
 
-CONFOPTS="${CONFOPTS} --enable-openmp"
+CONFOPTS="${CONFOPTS} --enable-openmp --without-threading-support-check-during-build"
 MKL_OMPRTL="gnu_thread"
 MKL_FCRTL="gf"
 TARGET="-march=native -mtune=native"
@@ -105,7 +105,7 @@ sed -i \
 if [ -e ${HERE}/config.h ]; then
   VERSION=$(grep ' VERSION ' config.h | cut -s -d' ' -f3 | sed -e 's/^\"//' -e 's/\"$//')
   if [ "" != "${VERSION}" ]; then
-    if [ "1" = "$(grep ' WITH_OPENMP ' config.h | cut -s -d' ' -f3 | sed -e 's/^\"//' -e 's/\"$//')" ]; then
+    if [ "0" != "$(grep ' WITH_OPENMP' config.h | cut -s -d' ' -f3 | sed -e 's/^\"//' -e 's/\"$//')" ]; then
       ELPA=elpa_openmp
     else
       ELPA=elpa
